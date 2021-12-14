@@ -16,9 +16,9 @@ module contador (
     assign y1 = A[1];
     assign y2 = A[2];
 
-    assign Y0 <= (!w && A[0]) || (!w && !A[0]);
-    assign Y1 <= (!w && A[1]) || (A[1] && !A[0]) || (!w && A[0] && !A[1]);
-    assign Y2 <= (!w && A[2]) || (A[2] && !A[0] && A[2]) || (w && A[0] && A[1] && !A[2]) || (!y1 && y2);
+    assign Y0 = (!w && y0) || (!w && !y0);
+    assign Y1 = (!w && y1) || (y1 && !y0) || (!w && y0 && !y1);
+    assign Y2 = (!w && y2) || (!y0 && y2) || (w && y0 && y1 && !y2) || (!y1 && y2);
 
     always @(posedge clk or rst) begin
         
