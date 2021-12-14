@@ -13,7 +13,7 @@ module testbench;
     contador cnt(rst, clk, w, y0, y1, y2);
 
     always #6 clk <= ~clk;
-    always #3 w <= ~w;
+    always #6 w <= ~w;
 
     initial begin
 
@@ -21,7 +21,7 @@ module testbench;
 
             clk <= 1'b0;
             rst <= 1'b1;
-            w <= 1'b0;
+            w <= 1'b1;
             #1
             rst <= 1'b0;
             
